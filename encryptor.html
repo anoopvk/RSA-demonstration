@@ -11,47 +11,53 @@
 
 <body>
 
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" style="margin: 20px auto ;">
+            <div class="col-lg-6 " style="margin: 20px auto ;">
                 <div class="card">
                     <div class="text-center mt-4">
-                        <h2>Generate key </h2>
-                        <div class="m-3">
-                            <button type="button m-5" class="btn btn-primary btn-md" onclick="generatekey()">
-                                Generate</button>
-
-                        </div>
+                        <h2>Encrypt Message </h2>
                     </div>
-                    <hr>
+
+
                     <div class="card-body ">
                         <div class="form-group">
-
-                            <label for="publickey">Public Key (e,n) : </label>
-                            <div class="m-2">
-                                <input class="form-control" type="text" value="" id="publickey" readonly>
-                            </div>
-                            <div class="text-center">
-                                <button type="button " class="btn btn-primary btn-sm"
-                                    onclick="copytoclipboard('publickey')">
-                                    Copy</button>
-                            </div>
-
-
+                            <label class="form-label" for="publickeyinput">Enter Public Key (e,n) :</label>
+                            <input class="form-control" type="text" value="" id="publickeyinput">
                         </div>
-                        <hr>
+
+
                         <div class="form-group">
+                            <label for="msginput"> Enter Message : </label>
+                            <textarea class="form-control" name="" id="msginput" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="text-center">
+                            <button type="button m-5" class="btn btn-primary" onclick="encryptmsg()">
+                                Encrypt</button>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <!-- <p> Cipher : </p>
+
+                            <input class="form-control" style="width: 100%;" type="text" value="" id="ciphertext"
+                                readonly> -->
 
 
 
-                            <label for="privatekey"> Private Key (d,n) </label>
+                            <label for="ciphertext"> Cipher : </label>
                             <div class="m-2">
-                                <input class="form-control" type="text" value="" id="privatekey" readonly>
+                                <input class="form-control" style="width: 100%;" type="text" value="" id="ciphertext"
+                                    readonly>
                             </div>
                             <div class="text-center">
 
                                 <button type="button " class="btn btn-primary btn-sm"
-                                    onclick="copytoclipboard('privatekey')">
+                                    onclick="copytoclipboard('ciphertext')">
                                     Copy</button>
                             </div>
 
@@ -60,21 +66,25 @@
 
                 </div>
             </div>
+
         </div>
     </div>
 
 
-    </div>
 
 
 
 
 
 
+    <script>
+
+    </script>
+
+    <!-- <script src="keygen.js"></script> -->
     <script src="script.js"></script>
-    <script src="keygen.js"></script>
 
-    <!-- <script src="encript.js"></script> -->
+    <script src="encript.js"></script>
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
