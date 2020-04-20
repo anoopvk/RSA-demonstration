@@ -5,9 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSA Demonstrator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="backgradvog coverwhole">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-4" style="margin: 20px auto ;">
+                    <div class="card" style="height: 100%;">
+                        <div class="text-center mt-4">
+                            <h2>Generate key </h2>
+                            <div class="m-3">
+                                <button type="button m-5" class="btn btn-primary btn-md"
+                                    onclick="generatekeyallinone()">
+                                    Generate</button>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card-body ">
+                            <div class="form-group">
+
+                                <label for="publickey">Public Key (e,n) : </label>
+                                <div class="m-2">
+                                    <input class="form-control" type="text" value="" id="publickey" readonly>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('publickey')">
+                                        Copy</button>
+                                </div>
+
+
+                            </div>
+                            <hr>
+                            <div class="form-group">
+
+
+
+                                <label for="privatekey"> Private Key (d,n) </label>
+                                <div class="m-2">
+                                    <input class="form-control" type="text" value="" id="privatekey" readonly>
+                                </div>
+                                <div class="text-center">
+
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('privatekey')">
+                                        Copy</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 " style="margin: 20px auto ;">
+                    <div class="card">
+                        <div class="text-center mt-4">
+                            <h2>Encrypt Message </h2>
+                        </div>
+
+
+                        <div class="card-body ">
+                            <div class="form-group">
+                                <label class="form-label" for="publickeyinput">Enter Public Key (e,n) :</label>
+                                <input class="form-control" type="text" value="" id="publickeyinput">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="msginput"> Enter Message : </label>
+                                <textarea class="form-control" name="" id="msginput" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="text-center">
+                                <button type="button m-5" class="btn btn-primary" onclick="encriptallinone()">
+                                    Encrypt</button>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group">
+                                <!-- <p> Cipher : </p>
+
+                            <input class="form-control" style="width: 100%;" type="text" value="" id="ciphertext"
+                                readonly> -->
+
+
+
+                                <label for="ciphertext"> Cipher : </label>
+                                <div class="m-2">
+                                    <input class="form-control" style="width: 100%;" type="text" value=""
+                                        id="ciphertext" readonly>
+                                </div>
+                                <div class="text-center">
+
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('ciphertext')">
+                                        Copy</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 " style="margin: 20px 0px ;">
+                    <div class="card">
+                        <div class="text-center mt-4">
+                            <h2>Decrypt Message </h2>
+                        </div>
+
+
+                        <div class="card-body ">
+                            <div class="form-group">
+                                <label class="form-label" for="privatekeyinput">Enter Private Key (d,n) :</label>
+                                <input class="form-control" type="text" value="" id="privatekeyinput">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="cipherinput"> Enter Cipher : </label>
+                                <textarea class="form-control" name="" id="cipherinput" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="text-center">
+                                <button type="button m-5" class="btn btn-primary" onclick="decryptmsg()">
+                                    Decrypt</button>
+                            </div>
+                            <hr>
+
+
+                            <div class="form-group">
+                                <!-- <p> Message : </p>
+
+                            <input class="form-control" style="width: 100%;" type="text" value="" id="messagetext"
+                                readonly> -->
+
+
+
+
+                                <label for="messagetext"> Message : </label>
+                                <div class="m-2">
+                                    <input class="form-control" style="width: 100%;" type="text" value=""
+                                        id="messagetext" readonly>
+                                </div>
+                                <div class="text-center">
+
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('messagetext')">
+                                        Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -17,13 +182,34 @@
 
 
 
+    <script src="js/script.js"></script>
 
+    <script src="js/keygen.js"></script>
+    <script src="js/encript.js"></script>
+    <script src="js/decript.js"></script>
+    <script>
+        function generatekeyallinone() {
+            generatekey();
+            document.getElementById('publickeyinput').value = document.getElementById('publickey').value;
+            document.getElementById('privatekeyinput').value = document.getElementById('privatekey').value;
+        }
+        function encriptallinone() {
+            encryptmsg();
+            document.getElementById('cipherinput').value = document.getElementById('ciphertext').value;
 
-    <script src="keygen.js"></script>
-    <script src="encript.js"></script>
-    <script src="decript.js"></script>
+        }
 
+    </script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -7,61 +7,62 @@
     <title>RSA Demonstrator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="backgradvog coverwhole">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" style="margin: 20px auto ;">
+                    <div class="card">
+                        <div class="text-center mt-4">
+                            <h2>Generate key </h2>
+                            <div class="m-3">
+                                <button type="button m-5" class="btn btn-primary btn-md" onclick="generatekey()">
+                                    Generate</button>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6" style="margin: 20px auto ;">
-                <div class="card">
-                    <div class="text-center mt-4">
-                        <h2>Generate key </h2>
-                        <div class="m-3">
-                            <button type="button m-5" class="btn btn-primary btn-md" onclick="generatekey()">
-                                Generate</button>
-
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="card-body ">
-                        <div class="form-group">
-
-                            <label for="publickey">Public Key (e,n) : </label>
-                            <div class="m-2">
-                                <input class="form-control" type="text" value="" id="publickey" readonly>
                             </div>
-                            <div class="text-center">
-                                <button type="button " class="btn btn-primary btn-sm"
-                                    onclick="copytoclipboard('publickey')">
-                                    Copy</button>
-                            </div>
-
-
                         </div>
                         <hr>
-                        <div class="form-group">
+                        <div class="card-body ">
+                            <div class="form-group">
+
+                                <label for="publickey">Public Key (e,n) : </label>
+                                <div class="m-2">
+                                    <input class="form-control" type="text" value="" id="publickey" readonly>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('publickey')">
+                                        Copy</button>
+                                </div>
 
 
-
-                            <label for="privatekey"> Private Key (d,n) </label>
-                            <div class="m-2">
-                                <input class="form-control" type="text" value="" id="privatekey" readonly>
                             </div>
-                            <div class="text-center">
+                            <hr>
+                            <div class="form-group">
 
-                                <button type="button " class="btn btn-primary btn-sm"
-                                    onclick="copytoclipboard('privatekey')">
-                                    Copy</button>
+
+
+                                <label for="privatekey"> Private Key (d,n) </label>
+                                <div class="m-2">
+                                    <input class="form-control" type="text" value="" id="privatekey" readonly>
+                                </div>
+                                <div class="text-center">
+
+                                    <button type="button " class="btn btn-secondary btn-sm"
+                                        onclick="copytoclipboard('privatekey')">
+                                        Copy</button>
+                                </div>
+
                             </div>
-
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
     </div>
@@ -71,10 +72,10 @@
 
 
 
-    <script src="script.js"></script>
-    <script src="keygen.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/keygen.js"></script>
 
-    <!-- <script src="encript.js"></script> -->
+    <!-- <script src="js/encript.js"></script> -->
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
